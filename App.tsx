@@ -9,6 +9,7 @@ import Comparison from './components/Comparison';
 import ROICalculator from './components/ROICalculator';
 import LearningRoadmap from './components/LearningRoadmap';
 import CourseList from './components/CourseList';
+import LeadCapture from './components/LeadCapture';
 import Instructors from './components/Instructors';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
@@ -26,7 +27,7 @@ const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen selection:bg-cyber-400 selection:text-black overflow-x-hidden bg-[#020617]">
-      {/* HUD Global Overlay (Static Coord Labels) */}
+      {/* HUD Global Overlay */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[110] border-[15px] border-transparent">
         <div className="absolute top-6 left-1/2 -translate-x-1/2 font-mono text-[7px] text-cyber-400/10 tracking-[1.5em] uppercase hidden lg:block">
           ENCRYPTION_LAYER_ACTIVE_SYNC_v3.2
@@ -71,6 +72,10 @@ const App: React.FC = () => {
            <CourseList />
         </section>
 
+        <section id="waitlist" className="py-12 md:py-20">
+           <LeadCapture />
+        </section>
+
         <section id="professores" className="py-12 md:py-20 relative scroll-mt-24">
            <Instructors />
         </section>
@@ -89,7 +94,6 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
-      
       <WhatsAppButton />
     </div>
   );
