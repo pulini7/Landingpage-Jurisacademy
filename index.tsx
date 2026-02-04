@@ -1,16 +1,14 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+const rootElement = document.getElementById("root");
 
-const rootElement = document.getElementById('root');
 if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
+  throw new Error("SEM #root no index.html");
 }
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ReactDOM.createRoot(rootElement).render(
+  <div style={{ padding: 20, color: "black", fontSize: 20 }}>
+    ✅ React carregou de verdade
+  </div>
 );
