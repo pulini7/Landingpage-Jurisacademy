@@ -94,7 +94,7 @@ const CourseList: React.FC = () => {
         {COURSES.map((course, idx) => (
           <div 
             key={course.id} 
-            className={`group relative bg-slate-900/20 border-2 ${course.isPopular ? course.borderColor + ' ring-1 ring-white/5' : 'border-white/5'} rounded-[2.5rem] p-1.5 hover:scale-[1.02] transition-all duration-500 reveal overflow-hidden shadow-2xl`}
+            className={`group relative bg-slate-900/20 border-2 ${course.isPopular ? course.borderColor + ' ring-1 ring-white/5' : 'border-white/5 hover:border-cyber-400/20'} rounded-[2.5rem] p-1.5 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(34,211,238,0.15)] transition-all duration-500 reveal overflow-hidden shadow-2xl`}
             style={{ transitionDelay: `${idx * 0.15}s` }}
           >
             {course.isPopular && (
