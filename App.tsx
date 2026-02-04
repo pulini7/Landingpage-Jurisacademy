@@ -22,14 +22,54 @@ import AIConsultant from './components/AIConsultant';
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
 
+  // Inicialização de Animações e Scroll Observer
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    // Scroll Progress Bar Logic
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolledPct = (winScroll / height) * 100;
+      const progressBar = document.getElementById("scroll-progress");
+      if (progressBar) {
+        progressBar.style.width = scrolledPct + "%";
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Reveal Animation Logic
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const initObserver = () => {
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    };
+
+    // Delay inicial para garantir que o DOM foi montado
+    const timeout = setTimeout(initObserver, 500);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeout);
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <div className="relative min-h-screen selection:bg-cyber-400 selection:text-black overflow-x-hidden bg-[#020617]">
+      {/* Scroll Progress Bar */}
+      <div 
+        id="scroll-progress" 
+        className="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-transparent to-cyber-400 z-[9999] w-0 transition-[width] duration-100 ease-out shadow-[0_0_10px_#22d3ee]"
+      ></div>
+
       {/* HUD Global Overlay */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[110] border-[15px] border-transparent">
         <div className="absolute top-6 left-1/2 -translate-x-1/2 font-mono text-[7px] text-cyber-400/10 tracking-[1.5em] uppercase hidden lg:block">
