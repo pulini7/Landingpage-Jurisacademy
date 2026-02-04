@@ -167,15 +167,15 @@ const CourseList: React.FC = () => {
                     ) : "Garantir Acesso Imediato"}
                   </button>
                   
-                  <div className="mt-6 flex flex-col items-center gap-2.5 opacity-60">
+                  <div className="mt-6 flex flex-col items-center gap-2.5 opacity-80">
                      <div className="flex items-center gap-2.5">
                        <div className="relative flex items-center justify-center">
-                          <div className="w-2 h-2 bg-emerald-500 rounded-full animate-ping absolute"></div>
-                          <div className="w-2 h-2 bg-emerald-500 rounded-full relative"></div>
+                          <div className="w-2 h-2 bg-emerald-400 rounded-full animate-ping absolute opacity-75"></div>
+                          <div className="w-2 h-2 bg-emerald-500 rounded-full relative shadow-[0_0_10px_rgba(16,185,129,0.6)] animate-pulse"></div>
                        </div>
                        <span className="text-[8px] font-black uppercase tracking-[0.3em] text-emerald-400">Gateway Verificado & Ativo</span>
                      </div>
-                     <div className="flex items-center gap-2">
+                     <div className="flex items-center gap-2 opacity-60">
                         <svg className="w-3 h-3 text-slate-500" fill="currentColor" viewBox="0 0 20 20"><path d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"/></svg>
                         <span className="text-[7px] font-bold uppercase tracking-widest text-slate-500">Certificado SSL 256-Bit</span>
                      </div>
