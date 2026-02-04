@@ -8,6 +8,13 @@ const AIConsultant: React.FC = () => {
   const [displayedResponse, setDisplayedResponse] = useState('');
   const [loading, setLoading] = useState(false);
   const typingTimerRef = useRef<number | null>(null);
+  const responseContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (responseContainerRef.current) {
+      responseContainerRef.current.scrollTop = responseContainerRef.current.scrollHeight;
+    }
+  }, [displayedResponse, loading]);
 
   useEffect(() => {
     if (response) {
@@ -109,7 +116,7 @@ const AIConsultant: React.FC = () => {
                     <p className="font-mono text-[8px] text-slate-600 uppercase">Latency: 24ms</p>
                  </div>
                  
-                 <div className="flex-1 overflow-y-auto font-mono text-xs md:text-sm text-cyan-50/90 leading-relaxed space-y-4 custom-scrollbar pr-4">
+                 <div ref={responseContainerRef} className="flex-1 overflow-y-auto font-mono text-xs md:text-sm text-cyan-50/90 leading-relaxed space-y-4 custom-scrollbar pr-4">
                     {loading && !displayedResponse ? (
                       <div className="space-y-3">
                         <div className="h-4 bg-white/5 w-3/4 rounded animate-pulse"></div>

@@ -47,7 +47,7 @@ const FAQ: React.FC = () => {
               </svg>
             </button>
             {openIdx === idx && (
-              <div className="p-5 pt-0 text-slate-400 text-[11px] leading-relaxed animate-fade-in">
+              <div className="p-5 pt-0 text-slate-400 text-[11px] leading-relaxed animate-fadeIn">
                 {item.answer}
               </div>
             )}

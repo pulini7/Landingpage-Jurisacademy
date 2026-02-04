@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -14,6 +15,9 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import TrustLogos from './components/TrustLogos';
+import NeuralDrafting from './components/NeuralDrafting';
+import AIConsultant from './components/AIConsultant';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -40,6 +44,7 @@ const App: React.FC = () => {
       
       <main>
         <Hero />
+        <TrustLogos />
 
         <div className="py-8">
           <Stats />
@@ -47,6 +52,10 @@ const App: React.FC = () => {
 
         <section id="fundamentos" className="py-12 md:py-20 bg-black/20">
           <Fundamentals />
+        </section>
+
+        <section id="neural" className="py-12 md:py-20">
+           <NeuralDrafting />
         </section>
         
         <section id="stack" className="relative scroll-mt-24 py-12 md:py-20">
@@ -69,6 +78,10 @@ const App: React.FC = () => {
         <section id="cursos" className="py-16 md:py-24 relative bg-slate-950/40 scroll-mt-24">
            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyber-400/30 to-transparent"></div>
            <CourseList />
+        </section>
+
+        <section id="consultor" className="py-12 md:py-20 bg-slate-950/30">
+          <AIConsultant />
         </section>
 
         <section id="waitlist" className="py-12 md:py-20">

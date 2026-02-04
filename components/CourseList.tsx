@@ -69,10 +69,18 @@ const CourseList: React.FC = () => {
 
   const handleHotmartClick = (id: string, url: string) => {
     setPurchasingId(id);
+    
+    // Tentativa de abrir em nova aba imediatamente para evitar bloqueio de popup
+    const win = window.open(url, '_blank');
+    
+    // Se o bloqueador de popup impedir, redirecionamos na mesma aba como fallback
+    if (!win) {
+       window.location.href = url;
+    }
+
     setTimeout(() => {
       setPurchasingId(null);
-      window.open(url, '_blank');
-    }, 1500);
+    }, 2000);
   };
 
   return (
@@ -162,7 +170,7 @@ const CourseList: React.FC = () => {
                     {purchasingId === course.id ? (
                       <div className="flex items-center gap-3">
                          <div className="w-3 h-3 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
-                         Sincronizando...
+                         Processando...
                       </div>
                     ) : "Garantir Acesso Imediato"}
                   </button>
