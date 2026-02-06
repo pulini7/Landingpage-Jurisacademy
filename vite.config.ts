@@ -11,8 +11,8 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     define: {
       // Define process.env.API_KEY para compatibilidade com o código que usa @google/genai
-      // Na Vercel, defina a variável de ambiente VITE_API_KEY ou API_KEY
-      'process.env.API_KEY': JSON.stringify(env.VITE_API_KEY || env.API_KEY || ''),
+      // Adicionamos VITE_GEMINI_API_KEY como fallback caso o usuário tenha definido assim
+      'process.env.API_KEY': JSON.stringify(env.VITE_GEMINI_API_KEY || env.VITE_API_KEY || env.API_KEY || ''),
     },
     server: {
       host: true

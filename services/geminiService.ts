@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
@@ -6,7 +5,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 export const getAICounselorResponse = async (userPrompt: string) => {
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      model: "gemini-3-flash-preview",
       contents: userPrompt,
       config: {
         systemInstruction: `Você é a JURIS-AI, a interface inteligente da JurisAcademy. 
